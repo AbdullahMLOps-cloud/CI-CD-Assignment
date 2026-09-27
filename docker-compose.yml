@@ -1,0 +1,9 @@
+services:
+
+  app:
+    image: abiengineer/hostinfo:latest
+    container_name: hostinfo
+    restart: unless-stopped
+
+    ports:
+      - "8080:8080"
