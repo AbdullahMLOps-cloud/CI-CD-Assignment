@@ -36,7 +36,7 @@ jobs:
 
   security:
     name: Trivy Security Scan
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: build
 
     steps:
@@ -58,7 +58,7 @@ jobs:
 
   push:
     name: Push Image
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: security
 
     steps:
@@ -81,7 +81,7 @@ jobs:
 
   deploy:
     name: Deploy to AWS VM
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: push
 
     steps:
