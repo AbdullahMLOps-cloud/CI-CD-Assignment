@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return jsonify({
-        "message": "Host Information API",
+        "message": "Host Information API by Abdullah",
         "hostname": socket.gethostname(),
         "platform": platform.platform(),
         "system": platform.system(),
