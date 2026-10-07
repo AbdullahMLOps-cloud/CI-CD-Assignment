@@ -8,11 +8,11 @@ A containerized Flask application that provides system host information and heal
 
 ## Features
 
-- 🚀 **RESTful API** - Simple Flask-based HTTP endpoints
-- 📊 **Host Information** - Retrieve system and platform details
-- ❤️ **Health Check** - Built-in health check endpoint
-- 🐳 **Docker Ready** - Includes Dockerfile and docker-compose configuration
-- 🔄 **CI/CD Pipeline** - GitHub Actions integration for automated deployment
+-  **RESTful API** - Simple Flask-based HTTP endpoints
+-  **Host Information** - Retrieve system and platform details
+-  **Health Check** - Built-in health check endpoint
+-  **Docker Ready** - Includes Dockerfile and docker-compose configuration
+-  **CI/CD Pipeline** - GitHub Actions integration for automated deployment
 
 ## Tech Stack
 
@@ -224,4 +224,4 @@ For issues, questions, or suggestions, please open an issue on the [GitHub Issue
 
 ---
 
-**Status**: Active Development | **Repository**: Public | **Created**: October 2024
+**Status**: Active Development | **Repository**: Public | **Created**: October 2026
