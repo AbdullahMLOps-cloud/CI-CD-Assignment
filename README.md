@@ -104,7 +104,7 @@ The repository includes `setup-server.sh` to configure an Ubuntu/Debian server f
 
 4. **Access the app:**
 
-   Once the Flask app is running on `http://127.0.0.1:8080`, the Nginx reverse proxy will expose it on port `80` via the server's public IP or hostname.
+   After the script completes, the application is available on port `80` via the server's public IP or hostname, while the Flask app itself continues to run locally on `http://127.0.0.1:8080`.
 
 ### Local Development Setup
 
