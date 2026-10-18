@@ -27,6 +27,7 @@ A containerized Flask application that provides system host information and heal
 ```
 ├── hostinfo.py                 # Main Flask application
 ├── requirements.txt            # Python dependencies
+├── setup-server.sh             # Installs and configures Nginx as a reverse proxy
 ├── Dockerfile                  # Docker image configuration
 ├── docker-compose.yml          # Docker Compose setup
 ├── github-actions-deploy       # SSH private key for deployment
@@ -77,6 +78,33 @@ Returns the health status of the application.
 - Docker >= 20.10
 - Docker Compose >= 1.29
 - Python >= 3.12 (for local development)
+- Ubuntu/Debian-based server with `sudo` access for the Nginx setup script
+
+### Server Setup with Nginx Reverse Proxy
+
+The repository includes `setup-server.sh` to configure an Ubuntu/Debian server for production-style traffic routing.
+
+1. **Copy the script to your server and make it executable:**
+   ```bash
+   chmod +x setup-server.sh
+   ```
+
+2. **Run the setup script:**
+   ```bash
+   ./setup-server.sh
+   ```
+
+3. **What the script does:**
+   - Installs Nginx with `apt`
+   - Creates a site configuration at `/etc/nginx/sites-available/hostinfo`
+   - Proxies all incoming HTTP traffic to `http://127.0.0.1:8080`
+   - Enables the config and disables the default Nginx site
+   - Validates the config with `nginx -t`
+   - Enables and reloads Nginx
+
+4. **Access the app:**
+
+   Once the Flask app is running on `http://127.0.0.1:8080`, the Nginx reverse proxy will expose it on port `80` via the server's public IP or hostname.
 
 ### Local Development Setup
 
@@ -145,6 +173,7 @@ The API will be available at `http://localhost:8080`
 - **Container Name**: `hostinfo`
 - **Port Mapping**: `8080:8080`
 - **Restart Policy**: `unless-stopped`
+- **Reverse Proxy**: Nginx on port `80` forwards to `127.0.0.1:8080` using `setup-server.sh`
 
 ## Testing the Application
 
